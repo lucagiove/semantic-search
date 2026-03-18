@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: iteration 3 - domain logic with TDD
+Current phase: iteration 4 - infrastructure adapters
 
 Legend:
 - `[ ]` not started
@@ -43,10 +43,10 @@ Legend:
 - `[x]` Refactor while preserving explicit typing and deterministic tests.
 
 ### 4. Implement infrastructure adapters
-- `[ ]` Implement PDF text extraction using `pdf-parse`.
-- `[ ]` Implement local embedding generation using `@xenova/transformers`.
-- `[ ]` Add thin wrappers that convert library outputs into domain types.
-- `[ ]` Handle adapter-level failures with stable error mapping.
+- `[x]` Implement PDF text extraction using `pdf-parse`.
+- `[x]` Implement local embedding generation using `@xenova/transformers`.
+- `[x]` Add thin wrappers that convert library outputs into domain types.
+- `[x]` Handle adapter-level failures with stable error mapping.
 
 ### 5. Implement application services
 - `[ ]` Build the indexing workflow that parses pages, skips empty pages, embeds text, and returns the in-memory index.
@@ -111,3 +111,11 @@ After each iteration:
 - Exported the chunk creation API from the domain index and tightened the implementation to satisfy strict TypeScript checks.
 - Verified the iteration with `npm run build` and `npm test`.
 - Next target: implement the `pdf-parse` and `@xenova/transformers` adapters and map their failures into stable domain errors.
+
+### Iteration 4
+- Added a `pdf-parse` adapter that reads PDF files, extracts per-page text, and maps file/parse failures into stable `CliError` values.
+- Added a transformers-based embedding adapter for `Xenova/all-MiniLM-L6-v2`, including tensor-to-vector conversion for batch embeddings.
+- Added unit coverage for both adapters and a local type declaration for `pdf-parse` to keep the project strict-mode clean.
+- Exported the infrastructure layer from the package entrypoint.
+- Verified the iteration with `npm run build` and `npm test`.
+- Next target: implement the application services that compose extraction, chunking, embeddings, and ranking behind index/query workflows.
