@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: iteration 5 - application services
+Current phase: iteration 6 - CLI commands
 
 Legend:
 - `[ ]` not started
@@ -54,10 +54,10 @@ Legend:
 - `[x]` Add application-level tests with fakes for PDF extraction and embeddings.
 
 ### 6. Implement CLI
-- `[ ]` Add the `index` command with `--file`.
-- `[ ]` Add the `query` command with `--file`, `--question`, and optional `--top`.
-- `[ ]` Format stdout exactly as required by the spec.
-- `[ ]` Return non-zero exits and useful stderr messages for invalid input or runtime failures.
+- `[x]` Add the `index` command with `--file`.
+- `[x]` Add the `query` command with `--file`, `--question`, and optional `--top`.
+- `[x]` Format stdout exactly as required by the spec.
+- `[x]` Return non-zero exits and useful stderr messages for invalid input or runtime failures.
 
 ### 7. End-to-end verification
 - `[ ]` Add E2E tests for `docsearch index` happy path.
@@ -127,3 +127,10 @@ After each iteration:
 - Exported the application layer from the package entrypoint.
 - Verified the iteration with `npm run build` and `npm test`.
 - Next target: wire the `index` and `query` CLI commands, format stdout exactly to spec, and return stable failures through the command layer.
+
+### Iteration 6
+- Replaced the CLI stub with real `index` and `query` commands wired to the application services.
+- Added command-layer formatting for index confirmation lines and plain-text ranked query output.
+- Added CLI tests for success output and stderr/non-zero failure behavior, while preserving Commander help handling.
+- Verified the iteration with `npm run build` and `npm test`.
+- Next target: add true end-to-end command tests for the implemented flows and bring in the sample PDF needed for manual verification.
