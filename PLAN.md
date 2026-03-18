@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: planning
+Current phase: iteration 1 - project bootstrap
 
 Legend:
 - `[ ]` not started
@@ -25,10 +25,10 @@ Legend:
 ## Iteration Plan
 
 ### 1. Project bootstrap
-- `[ ]` Initialize the Node.js + TypeScript project structure.
-- `[ ]` Add dependencies and scripts for CLI execution, build, and tests.
-- `[ ]` Configure TypeScript, module format, and package binary entry for `docsearch`.
-- `[ ]` Choose and configure the test runner for unit and E2E tests.
+- `[x]` Initialize the Node.js + TypeScript project structure.
+- `[x]` Add dependencies and scripts for CLI execution, build, and tests.
+- `[x]` Configure TypeScript, module format, and package binary entry for `docsearch`.
+- `[x]` Choose and configure the test runner for unit and E2E tests.
 
 ### 2. Define domain model and boundaries
 - `[ ]` Define core types for page chunks, vectors, ranked results, and command inputs.
@@ -89,3 +89,10 @@ After each iteration:
 - Created the initial implementation plan from `SPECIFICATIONS.md` and `CONVENTIONS.md`.
 - Identified that the repository does not yet contain application code, tests, or project scaffolding.
 - Next target: bootstrap the TypeScript project and testing setup before any feature implementation.
+
+### Iteration 1
+- Added the base Node.js + TypeScript project scaffold, including `package.json`, `tsconfig.json`, and `vitest.config.ts`.
+- Added the initial CLI entrypoint and minimal source/test layout for unit and E2E execution.
+- Installed dependencies and generated the lockfile.
+- Verified the scaffold with `npm run build` and `npm test`.
+- Next target: define the domain model, ports, ranking utilities, and CLI-facing error boundaries.
