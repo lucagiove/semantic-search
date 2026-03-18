@@ -17,4 +17,6 @@ export {
   mapErrorToCliFailure
 } from "./errors.js";
 
+export { createPageChunks } from "./chunks.js";
+
 export { cosineSimilarity, rankChunks } from "./ranking.js";

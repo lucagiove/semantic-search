@@ -3,3 +3,4 @@ export interface BootstrapStatus {
 }
 export declare const bootstrapStatus: BootstrapStatus;
 export * from "./domain/index.js";
+export * from "./infrastructure/index.js";

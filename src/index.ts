@@ -7,3 +7,4 @@ export const bootstrapStatus: BootstrapStatus = {
 };
 
 export * from "./domain/index.js";
+export * from "./infrastructure/index.js";
