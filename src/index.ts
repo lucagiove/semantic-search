@@ -5,3 +5,5 @@ export interface BootstrapStatus {
 export const bootstrapStatus: BootstrapStatus = {
   ready: true
 };
+
+export * from "./domain/index.js";

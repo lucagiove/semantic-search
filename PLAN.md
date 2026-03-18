@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: iteration 1 - project bootstrap
+Current phase: iteration 2 - domain model and boundaries
 
 Legend:
 - `[ ]` not started
@@ -31,10 +31,10 @@ Legend:
 - `[x]` Choose and configure the test runner for unit and E2E tests.
 
 ### 2. Define domain model and boundaries
-- `[ ]` Define core types for page chunks, vectors, ranked results, and command inputs.
-- `[ ]` Define ports/interfaces for PDF extraction and embedding generation.
-- `[ ]` Define pure ranking utilities, including cosine similarity and top-k selection.
-- `[ ]` Capture error cases and CLI-facing failure messages.
+- `[x]` Define core types for page chunks, vectors, ranked results, and command inputs.
+- `[x]` Define ports/interfaces for PDF extraction and embedding generation.
+- `[x]` Define pure ranking utilities, including cosine similarity and top-k selection.
+- `[x]` Capture error cases and CLI-facing failure messages.
 
 ### 3. Build the domain with TDD
 - `[ ]` Add failing unit tests for cosine similarity and ranking behavior.
@@ -96,3 +96,11 @@ After each iteration:
 - Installed dependencies and generated the lockfile.
 - Verified the scaffold with `npm run build` and `npm test`.
 - Next target: define the domain model, ports, ranking utilities, and CLI-facing error boundaries.
+
+### Iteration 2
+- Added domain types for PDF pages, chunks, vectors, ranked results, and command inputs.
+- Added domain ports for PDF extraction and embedding generation.
+- Added the ranking module surface so the next TDD iteration can implement pure ranking behavior behind a stable API.
+- Added CLI error types and mapping with unit coverage for known and unknown failures.
+- Verified the iteration with `npm run build` and `npm test`.
+- Next target: write failing unit tests for ranking and chunk creation, then implement the pure domain logic.
