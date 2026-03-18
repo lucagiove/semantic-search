@@ -1,10 +1,4 @@
----
-description: TypeScript TDD standards for semantic-search
-globs: **/*.ts
-alwaysApply: false
----
-
-# Semantic Search TypeScript TDD
+# TypeScript TDD Conventions
 
 Use red-green-refactor for every behavior change in this project.
 
@@ -19,8 +13,8 @@ Use red-green-refactor for every behavior change in this project.
 - Focus tests on pure domain behavior and edge cases, not framework internals.
 - Keep domain tests deterministic with fakes/stubs for IO boundaries.
 
-## End-to-end tests for feedback acceptance
+## End-to-end tests
 
-- For each feedback-acceptance flow, add an E2E test that starts from user input and verifies acceptance output.
-- Cover both happy path and at least one rejection/failure path.
-- Assert externally visible outcomes (status, returned payload, persisted acceptance decision).
+- For each CLI flow, add an E2E test that starts from user input and verifies the output.
+- Cover the happy path and at least one failure path.
+- Assert externally visible outcomes (exit code, stdout content, file side-effects if any).
