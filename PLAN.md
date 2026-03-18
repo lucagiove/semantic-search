@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: iteration 4 - infrastructure adapters
+Current phase: iteration 5 - application services
 
 Legend:
 - `[ ]` not started
@@ -49,9 +49,9 @@ Legend:
 - `[x]` Handle adapter-level failures with stable error mapping.
 
 ### 5. Implement application services
-- `[ ]` Build the indexing workflow that parses pages, skips empty pages, embeds text, and returns the in-memory index.
-- `[ ]` Build the query workflow that indexes the file, embeds the question, ranks results, and returns top-k matches.
-- `[ ]` Add application-level tests with fakes for PDF extraction and embeddings.
+- `[x]` Build the indexing workflow that parses pages, skips empty pages, embeds text, and returns the in-memory index.
+- `[x]` Build the query workflow that indexes the file, embeds the question, ranks results, and returns top-k matches.
+- `[x]` Add application-level tests with fakes for PDF extraction and embeddings.
 
 ### 6. Implement CLI
 - `[ ]` Add the `index` command with `--file`.
@@ -119,3 +119,11 @@ After each iteration:
 - Exported the infrastructure layer from the package entrypoint.
 - Verified the iteration with `npm run build` and `npm test`.
 - Next target: implement the application services that compose extraction, chunking, embeddings, and ranking behind index/query workflows.
+
+### Iteration 5
+- Added the application workflow layer in `src/application/services.ts` for both PDF indexing and querying.
+- Implemented input validation for file path, question text, and `top` value at the application boundary.
+- Added fake-driven application tests covering indexing, ranked queries, and validation failures.
+- Exported the application layer from the package entrypoint.
+- Verified the iteration with `npm run build` and `npm test`.
+- Next target: wire the `index` and `query` CLI commands, format stdout exactly to spec, and return stable failures through the command layer.
