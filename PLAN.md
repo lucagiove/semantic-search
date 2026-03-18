@@ -2,7 +2,7 @@
 
 ## Status
 
-Current phase: iteration 2 - domain model and boundaries
+Current phase: iteration 3 - domain logic with TDD
 
 Legend:
 - `[ ]` not started
@@ -37,10 +37,10 @@ Legend:
 - `[x]` Capture error cases and CLI-facing failure messages.
 
 ### 3. Build the domain with TDD
-- `[ ]` Add failing unit tests for cosine similarity and ranking behavior.
-- `[ ]` Add failing unit tests for page chunk creation behavior, including skipping empty pages.
-- `[ ]` Implement the pure domain logic to satisfy the tests.
-- `[ ]` Refactor while preserving explicit typing and deterministic tests.
+- `[x]` Add failing unit tests for cosine similarity and ranking behavior.
+- `[x]` Add failing unit tests for page chunk creation behavior, including skipping empty pages.
+- `[x]` Implement the pure domain logic to satisfy the tests.
+- `[x]` Refactor while preserving explicit typing and deterministic tests.
 
 ### 4. Implement infrastructure adapters
 - `[ ]` Implement PDF text extraction using `pdf-parse`.
@@ -104,3 +104,10 @@ After each iteration:
 - Added CLI error types and mapping with unit coverage for known and unknown failures.
 - Verified the iteration with `npm run build` and `npm test`.
 - Next target: write failing unit tests for ranking and chunk creation, then implement the pure domain logic.
+
+### Iteration 3
+- Added red-phase unit tests for cosine similarity, ranked top-k selection, and page chunk creation with empty-page skipping.
+- Implemented `createPageChunks`, `cosineSimilarity`, and `rankChunks` as pure domain logic.
+- Exported the chunk creation API from the domain index and tightened the implementation to satisfy strict TypeScript checks.
+- Verified the iteration with `npm run build` and `npm test`.
+- Next target: implement the `pdf-parse` and `@xenova/transformers` adapters and map their failures into stable domain errors.
